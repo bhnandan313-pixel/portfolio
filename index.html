@@ -1,0 +1,383 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>The Curator - Portfolio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-secondary-container": "#656464",
+                      "primary-container": "#0055ff",
+                      "on-tertiary": "#ffffff",
+                      "outline-variant": "#c3c5d9",
+                      "inverse-surface": "#2f3132",
+                      "tertiary-fixed": "#ffdbd1",
+                      "primary-fixed-dim": "#b6c4ff",
+                      "primary-fixed": "#dce1ff",
+                      "surface": "#f9f9fb",
+                      "on-secondary": "#ffffff",
+                      "on-tertiary-fixed": "#3b0900",
+                      "on-secondary-fixed": "#1c1b1b",
+                      "on-error-container": "#93000a",
+                      "on-tertiary-container": "#ffe1d9",
+                      "tertiary": "#972500",
+                      "surface-bright": "#f9f9fb",
+                      "surface-tint": "#004dea",
+                      "inverse-on-surface": "#f0f0f2",
+                      "surface-container-lowest": "#ffffff",
+                      "secondary-container": "#e5e2e1",
+                      "on-surface-variant": "#434656",
+                      "surface-dim": "#d9dadc",
+                      "on-tertiary-fixed-variant": "#872100",
+                      "surface-container": "#eeeef0",
+                      "secondary-fixed": "#e5e2e1",
+                      "primary": "#0041c8",
+                      "tertiary-fixed-dim": "#ffb5a0",
+                      "on-primary-fixed": "#001551",
+                      "surface-container-high": "#e8e8ea",
+                      "on-error": "#ffffff",
+                      "surface-container-low": "#f3f3f5",
+                      "secondary": "#5f5e5e",
+                      "on-primary-fixed-variant": "#0039b3",
+                      "on-background": "#1a1c1d",
+                      "inverse-primary": "#b6c4ff",
+                      "secondary-fixed-dim": "#c9c6c5",
+                      "on-surface": "#1a1c1d",
+                      "surface-container-highest": "#e2e2e4",
+                      "error": "#ba1a1a",
+                      "on-primary-container": "#e3e6ff",
+                      "tertiary-container": "#c13301",
+                      "on-primary": "#ffffff",
+                      "outline": "#737688",
+                      "on-secondary-fixed-variant": "#474646",
+                      "surface-variant": "#e2e2e4",
+                      "error-container": "#ffdad6",
+                      "background": "#f9f9fb"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "section-padding-desktop": "120px",
+                      "max-width": "1200px",
+                      "gutter": "32px",
+                      "section-padding-mobile": "64px"
+              },
+              "fontFamily": {
+                      "display-lg-mobile": [
+                              "Geist"
+                      ],
+                      "body-md": [
+                              "Geist"
+                      ],
+                      "headline-md": [
+                              "Geist"
+                      ],
+                      "body-lg": [
+                              "Geist"
+                      ],
+                      "label-sm": [
+                              "Geist"
+                      ],
+                      "display-lg": [
+                              "Geist"
+                      ]
+              },
+              "fontSize": {
+                      "display-lg-mobile": [
+                              "40px",
+                              {
+                                      "lineHeight": "48px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-md": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.02em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg": [
+                              "72px",
+                              {
+                                      "lineHeight": "80px",
+                                      "letterSpacing": "-0.04em",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+</head>
+<body class="bg-surface text-on-surface font-body-md antialiased min-h-screen selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-md shadow-sm dark:shadow-none transition-all duration-300">
+<div class="flex justify-between items-center px-gutter max-w-max-width mx-auto h-20">
+<a class="font-headline-md text-headline-md font-bold text-on-surface dark:text-surface-bright hover:opacity-80 transition-opacity" href="#hero">The Curator</a>
+<!-- Desktop Nav -->
+<div class="hidden md:flex items-center gap-8">
+<ul class="flex items-center gap-6">
+<li class=""><a class="text-primary dark:text-primary-fixed font-bold border-b-2 border-primary pb-1 font-label-sm text-label-sm active:scale-95 transition-transform duration-200" href="#hero">Hero</a></li>
+<li class=""><a class="text-secondary dark:text-secondary-fixed hover:text-primary dark:hover:text-primary-fixed transition-colors font-label-sm text-label-sm hover:opacity-80 active:scale-95 duration-200" href="#projects">Projects</a></li>
+<li class=""><a class="text-secondary dark:text-secondary-fixed hover:text-primary dark:hover:text-primary-fixed transition-colors font-label-sm text-label-sm hover:opacity-80 active:scale-95 duration-200" href="#resume">Resume</a></li>
+<li class=""><a class="text-secondary dark:text-secondary-fixed hover:text-primary dark:hover:text-primary-fixed transition-colors font-label-sm text-label-sm hover:opacity-80 active:scale-95 duration-200" href="#skills">Skills</a></li>
+<li class=""><a class="text-secondary dark:text-secondary-fixed hover:text-primary dark:hover:text-primary-fixed transition-colors font-label-sm text-label-sm hover:opacity-80 active:scale-95 duration-200" href="#contact">Contact</a></li>
+</ul>
+
+</div>
+<!-- Mobile Menu Button (Functional via JS later if needed, but keeping it simple visual for now) -->
+<button class="md:hidden text-on-surface hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="menu" data-weight="fill" style="font-variation-settings: &quot;FILL&quot; 1;">menu</span>
+</button>
+</div>
+</nav>
+<!-- Main Content -->
+<main>
+<!-- Hero Section -->
+<section class="pt-32 pb-section-padding-mobile md:pb-section-padding-desktop px-gutter max-w-max-width mx-auto flex flex-col items-center justify-center min-h-[819px] text-center" id="hero">
+<div class="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden mb-8 shadow-sm">
+<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" data-alt="A striking portrait of a professional designer in a bright, modern light-mode setting. The subject is framed against a pristine white background with subtle, high-key lighting emphasizing clarity and precision. The overall aesthetic is minimalist, employing deep blacks and stark whites, capturing a sense of refined technical mastery and quiet confidence." src="https://i.postimg.cc/0Qz59w3Y/IMG-20260704-171011.jpg
+">
+</div>
+<h1 class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-on-surface mb-6">Nandan B H — Frontend Developer</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Building responsive web interfaces with HTML, CSS, and Bootstrap.</p>
+</section>
+<!-- Projects Section -->
+<section class="py-section-padding-mobile md:py-section-padding-desktop px-gutter max-w-max-width mx-auto" id="projects">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-12 text-center md:text-left border-b border-surface-variant pb-4">Selected Work</h2>
+<div class="grid grid-cols-1 gap-8 lg:gap-12 flex flex-col gap-16">
+<!-- Project 1 -->
+<article class="group bg-[#F5F5F7] rounded-xl overflow-hidden border border-[#E5E5E7] shadow-[0px_12px_40px_rgba(0,0,0,0.04)] hover:shadow-lg hover:-translate-y-1 transition-all duration-300 md:flex md:flex-row">
+<div class="aspect-video w-full overflow-hidden bg-surface-container md:w-1/2">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A sleek, minimalist digital dashboard interface displayed on a modern monitor. The screen shows data visualizations in a high-contrast monochrome palette with singular vibrant electric blue accents. The setting is a clean, well-lit workspace with ample whitespace, reflecting a professional and sophisticated design approach." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5a3VL_qDfp4iRWOunjfOw3OcuXh5fLJ8KRjnnlH9r4lDWqjCXzUAs6g8XcYVgdi59m1XdIkhh8iz0ySjjR3D7pMy4JU0RJ5-GOWqILf17S_eysuczWsqjZnh__lBmubsqhduFjUKbiPzLU62APMHoVwuaggGG-4tq0tSqPn2LmwfX2vt7gvSk8kzQHhp_Ig7aLL-HxRUCS5i1NVLM9ji7Qwr_8ZSYZNrI_vdGKNwIKTwWWmZRXlLT">
+</div>
+<div class="p-6 md:p-8 md:w-1/2 flex flex-col justify-center">
+<h3 class="font-headline-md text-headline-md !text-[24px] !line-height-[32px] text-on-surface mb-2">Mama's Recipes site</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">..........</p>
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="bg-surface-container-high text-on-surface px-3 py-1 rounded-full font-label-sm text-label-sm">HTML</span>
+<span class="bg-surface-container-high text-on-surface px-3 py-1 rounded-full font-label-sm text-label-sm">CSS</span>
+<span class="bg-surface-container-high text-on-surface px-3 py-1 rounded-full font-label-sm text-label-sm">BootStrap</span>
+</div>
+<a class="inline-flex items-center gap-2 text-primary hover:text-primary-container transition-colors font-label-sm text-label-sm group/link" href="https://bhnandan313-pixel.github.io/Recipe-finder-Satatic-/">
+                            View Project 
+                            <span class="material-symbols-outlined group-hover/link:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</article>
+<!-- Project 3 -->
+<article class="group bg-[#F5F5F7] rounded-xl overflow-hidden border border-[#E5E5E7] shadow-[0px_12px_40px_rgba(0,0,0,0.04)] hover:shadow-lg hover:-translate-y-1 transition-all duration-300 md:flex md:flex-row">
+<div class="aspect-video w-full overflow-hidden bg-surface-container md:w-1/2">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A sleek, minimalist digital dashboard interface displayed on a modern monitor. The screen shows data visualizations in a high-contrast monochrome palette with singular vibrant electric blue accents. The setting is a clean, well-lit workspace with ample whitespace, reflecting a professional and sophisticated design approach." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5a3VL_qDfp4iRWOunjfOw3OcuXh5fLJ8KRjnnlH9r4lDWqjCXzUAs6g8XcYVgdi59m1XdIkhh8iz0ySjjR3D7pMy4JU0RJ5-GOWqILf17S_eysuczWsqjZnh__lBmubsqhduFjUKbiPzLU62APMHoVwuaggGG-4tq0tSqPn2LmwfX2vt7gvSk8kzQHhp_Ig7aLL-HxRUCS5i1NVLM9ji7Qwr_8ZSYZNrI_vdGKNwIKTwWWmZRXlLT">
+</div>
+<div class="p-6 md:p-8 md:w-1/2 flex flex-col justify-center">
+<h3 class="font-headline-md text-headline-md !text-[24px] !line-height-[32px] text-on-surface mb-2">Event Booking Site</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">A comprehensive redesign of a complex fintech dashboard, prioritizing data clarity through reductive design and strategic typographic hierarchy.</p>
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="bg-surface-container-high text-on-surface px-3 py-1 rounded-full font-label-sm text-label-sm">HTML</span>
+<span class="bg-surface-container-high text-on-surface px-3 py-1 rounded-full font-label-sm text-label-sm">CSS</span>
+<span class="bg-surface-container-high text-on-surface px-3 py-1 rounded-full font-label-sm text-label-sm">JavaScript</span>
+</div>
+<a class="inline-flex items-center gap-2 text-primary hover:text-primary-container transition-colors font-label-sm text-label-sm group/link" href="https://bhnandan313-pixel.github.io/NexusAI_Responsive/">
+                            View Project 
+                            <span class="material-symbols-outlined group-hover/link:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</article>
+</div>
+</section>
+<!-- Resume Section -->
+<section class="py-section-padding-mobile md:py-section-padding-desktop px-gutter max-w-max-width mx-auto flex flex-col items-center justify-center text-center" id="resume">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-8">Experience</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-10">
+                Over a decade of experience bridging the gap between aesthetic intent and technical execution. Detailed career history available upon request.
+            </p>
+<a class="inline-flex items-center gap-3 bg-on-surface text-surface px-8 py-4 rounded-lg font-label-sm text-label-sm hover:bg-on-surface-variant transition-colors shadow-sm hover:shadow-md hover:-translate-y-0.5 active:scale-95 duration-200" href="assets\Nandan_BH_Resume.pdf" download>
+<span class="material-symbols-outlined" data-icon="description">description</span>
+                Download Resume (PDF)
+            </a>
+</section><section class="py-section-padding-mobile md:py-section-padding-desktop px-gutter max-w-max-width mx-auto" id="skills">
+<div class="max-w-max-width mx-auto">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-12 text-center md:text-display-lg">Skills</h2>
+<div class="flex flex-col gap-12"><!-- Apex: Languages (Centered) -->
+<div class="max-w-4xl mx-auto w-full mb-16">
+<div class="flex items-center justify-center mb-8">
+<img alt="Languages" class="w-8 h-8 mr-3 inline-block" src="https://lh3.googleusercontent.com/aida/AP1WRLvHm6l-AdF7qaYzYxJVuY20waVAxUemecDEjNEUlnaIP2gmKvX4J8tsjUFXnfH3WyGkk78_U3LXyXDizCFmi2v45Sa08QftAwU4hjUhw64UASCZTGrQlThImGKYAZpBnGGazRRMIa9k5VzWngxvJJ8FXAnljN4bhpvDtlyjsCe9_4ifwCPILjiNmaROasU6bP2Y00ZakhQEaWN1_vHTKxd7b2WoI4lI_P17ZJMaicNSeGKywQM-dZw3ow">
+<h3 class="font-headline-md text-headline-md text-on-surface uppercase tracking-wider">Languages</h3>
+</div>
+<div class="grid grid-cols-1 gap-8 w-full">
+<div class="p-8 rounded-xl">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-4">
+<img alt="JavaScript" class="w-12 h-12" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUZkPDHIagHZCtXWnqeYvYg4R8lGUX9AofxlyPfFuET5-ivDa7VuHlMtkQzpW1LFrgAkl3SEi5dvR-pUx1c0Mbyy8HRqjulbCRG0IUMJDodUCxWIlNlMvSt26pXoE1IqWls5x1X3kJBHiwd78PowfqGYdt3Rc1SON0-MjryWFueylLUN_zYLtQHkzinvac4zkwh9Klw9RvSyI_wi2dQfWgHKH9NjMXI1PdD9lzKIR2HjO3nVT3dzjf">
+<span class="font-headline-md text-on-surface">JavaScript</span>
+</div>
+<span class="text-headline-md text-secondary">15%</span>
+</div>
+<div class="h-4 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 15%"></div>
+</div>
+</div>
+<div class="p-8 rounded-xl">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-4">
+<div class="flex gap-2">
+<img alt="HTML" class="w-12 h-12" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUVHNe1ppLjGLkLYufo672uHMroXdeVpkLIy6g2Z_LmSJvVAi8ItiN1MX9BU2Gepc5U47-tsgq6Z21t7LTfEADsw5mkcru44xfFD4DNuN4EcBOHwNdy_Png-TmRDm623oQ48F4a3HPrGrKJcheTQYz2waTP4HFkgk3h9JN6S6grrQ5DxTbQ3hqiWiLPXN63wct_q8KzUO2Rv5Q1JtiLjtQNI5ZuMJPAf2SxMW7IRO_Mn4JIL0iDmCE">
+<img alt="CSS" class="w-12 h-12" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCuLhXypN6EmTDAJ_o5B9W_XCiIdRuD-7A8sWI4mL2Ipph7kZcsdvvbzVzT0Kv39G4ZMFzZE-JhBBs1iqMMg9pWq1pfuiCd4M-jraQ-ZQSu1jzpciHS4FwqLWXVAwILfmxVTOQl1FfrIcWFNhxsCECrXUV6ZxQAze3IyK6a3MRHsQU23MqY3Vbd90ae7j5JGUUNvcn5jKn0Q54MPH7d_KHUIfZo2X7S7IPv0hJl31sUnt2WLlNJtzY">
+</div>
+<span class="font-headline-md text-on-surface">HTML/CSS</span>
+</div>
+<span class="text-headline-md text-secondary">90%</span>
+</div>
+<div class="h-4 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 90%"></div>
+</div>
+</div>
+<div class="p-8 rounded-xl">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-4">
+<img alt="Python" class="w-12 h-12" src="https://lh3.googleusercontent.com/aida/AP1WRLsxA4dRNY8DwyacacyK9YwwjoS15MEzeqmiAZ4WtMB85jJ6JjfP1AJJ9De1FsMkvd8OiCICZp-VXp1FCpSkt5aoPznwtyk9iqwxA0t8Iwevnqnj-F2hPPhOYTyqJU2QNz0NtoXTKU52b15n_skppcONRJxoYanfnJycd25XbocHsT86Cl9xfbxNWEc3gU0QWkAf_yzXjfsBWfcegTNTnfVZ1Y1g2KV-Lz2Z8UFRb8glRoUWcSVz0jIOHbM">
+<span class="font-headline-md text-on-surface">Python</span>
+</div>
+<span class="text-headline-md text-secondary">20%</span>
+</div>
+<div class="h-4 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 20%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Base: Frameworks and Tools (Side-by-Side) -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+<!-- Frameworks -->
+<div>
+<div class="flex items-center mb-8">
+<img alt="Frameworks" class="w-8 h-8 mr-3 inline-block" src="https://lh3.googleusercontent.com/aida/AP1WRLthoJdvwCn8QanypW83Lb7vcMh9K78UgR8Rxlym0aowEBWUGbJOGeLd_CfRC72Z5UdklqhxjXWBzh_gKV_ziscHIf_ntAaSMppedC8l0am6ME40HKhBe-YwOJWqPU9e8xGQpvrv5ZdD3mTCHVqJM3Vo8EOAMAT8i-N-D0kIMf0CgTuTc8gbbhmecwZJcMb7RGHFEdY0khcYVyGVfqtdAp6yIKUD5HaWXxXTPrpI-pYsNbIlZ4TWUxCdW14">
+<h3 class="font-headline-md text-headline-md text-on-surface uppercase tracking-wider">Frameworks</h3>
+</div>
+<div class="flex flex-wrap gap-4">
+
+
+<span class="text-secondary px-6 py-3 rounded-full font-body-lg inline-flex items-center gap-3"><img alt="Tailwind CSS" class="w-8 h-8" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5uN68zLMJPWnsg6f_-JdfBLVueu4KwmJaL6zHXTtOq0UCzbh4NoOw_agmfRHHPO2r8846HrtYptKU9UOhemwA_y44hjYM_cA_twXyJDD3XcpPOn5u79i8wFYG9PV8zQ8ij8XFLqB23SZEAkkAp0ZOF5l4Z8BUH9tiuazivGMZ-3xmuWk-_DIHBci0xnh4BTgDuUttqspbRAYujxWxR7qqerRZhcxbZ50_uK-yK6IjO_tbeR2uXChM">Tailwind CSS</span>
+
+<span class="text-secondary px-6 py-3 rounded-full font-body-lg inline-flex items-center gap-3"><img alt="Bootstrap" class="w-8 h-8" src="https://lh3.googleusercontent.com/aida/AP1WRLv2pqm_F2kfKROj2qk5mTHnI4ak5cID0SNblsRfcgJZzRGhWJA872r3yEFUT0BjaoLBJrg0dnFIko_NdcUn0CR7u-bsNlydUb4OBicr0NnagF7M8Nvwm1kCHMD2OwN5-Ua2bxYNd8uQLthF21AdQ1XYt_sJJyoTn4L1ABM91-t_-dooDfkbgAyhMPFh3af3iihjs0bFqhsGekOY6Y9RvgAQEHa13Fz6quypk8Vdn_uIS3yRr8-YlJN076o">Bootstrap</span></div>
+</div>
+<!-- Tools -->
+<div>
+<div class="flex items-center mb-8">
+<img alt="Tools" class="w-8 h-8 mr-3 inline-block" src="https://lh3.googleusercontent.com/aida/AP1WRLvJOjlOCDjBceBC4c1untRHZ7RH1rY_jdty_5r7hdEz3A_LaYUi1BA0CMaVf4m0rzHnpYSeb0EfUCpGmhAJf6gicV5TV8T6ZErx9NQ4MmY6TnNsjza2nUWZI4-TPWC7mxSaX2WZ936avogafzxc8QjjYEQW1NR8wmrXxxpj4U-PCcTNKe_eHaO20_loc4S7TlBGiuZBI2w83rQy6Iex3sxVq4MrS5SD4qJp5rkg6eHO8M1EggrYA7q_tA">
+<h3 class="font-headline-md text-headline-md text-on-surface uppercase tracking-wider">Tools</h3>
+</div>
+<div class="flex flex-wrap gap-4">
+<span class="text-secondary px-6 py-3 rounded-full font-body-lg inline-flex items-center gap-3"><img alt="Figma" class="w-8 h-8" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBiAPmaDMac5NrA5aKos_tExuUGf8P4mrCurgKyx2aXDIgXKNASGpz-mW4eM6pxM6zdU8QdJX5VmHStaV5PuDdFnrYVC6NAwQRITXfOjY3CZiYOftvGk688RkCQCKL_OgWN9iy7gxmCpfwYtnNe2bV2wh5tna8Ww9CxgJ_sHO5VYzSEvdSaCjRthjyzIAD5eG88ysvGDoTAwZrhshuPbPWowzs0AhI-5T75CCf4BUAFTa6t-uhkIc9">Figma</span>
+<span class="text-secondary px-6 py-3 rounded-full font-body-lg inline-flex items-center gap-3"><img alt="Git" class="w-8 h-8" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvARzsxnFKKg_bevFNyen9hVTEIqECA1yr5_kxVWH1zMZg1f20LaR9sEgSlXiohzG5v7n2yK8-yDaInk-WiOiS2M5r04AEWD1310gi915XpKuWB63vnzxEISwLXRek1W-9fO9e7kC2ObaYFrWbGXTd91KTnY3skZz9xQlrFSCjHrtma1IqKO3noU7I1-LqxvNjrR7-8UxWj-GExghBgEBmX07Lphg-VSNnn5-tVJ0mM_VC9N_IDq-R">Git</span>
+<span class="text-secondary px-6 py-3 rounded-full font-body-lg inline-flex items-center gap-3"><img alt="VS Code" class="w-8 h-8" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXrV7mgCvqWnO2G0Jxlx4Oalz50zmM2d6Itg2Q0Xu1OVqs-k6O1bAVXxO78NWWpVuQETVM8Gf3f56DaHtxIWhFn8QFCj6QNHU1W3kG3eKx-n0eFInxPHu-qiL4paArLn0nWWxjf9oW1qHJQpCe9eM-96_N_ufXE3g85ZXSlE9Fh1HYfGOafjQ11A1vaKGwCVcqYXX2xzhkObqThkxQy1AZImcnTeQkPP466u0br2365kEMD-QsOWzQ">VS Code</span>
+
+</div>
+</div>
+</div></div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="py-section-padding-mobile md:py-section-padding-desktop px-gutter max-w-max-width mx-auto flex flex-col items-center justify-center text-center" id="contact">
+<h2 class="font-display-lg-mobile text-display-lg-mobile md:font-headline-md md:text-headline-md text-on-surface mb-12">Let's Connect</h2>
+<p class="font-headline-md text-headline-md font-bold text-on-surface max-w-2xl mx-auto mb-12 mt-8 py-4 border-y border-outline-variant/30 text-center">I am willing to contribute as a frontend developer for projects.</p><div class="flex flex-wrap justify-center gap-8 md:gap-16">
+<a class="flex flex-col items-center gap-3 text-secondary hover:text-primary transition-colors group" href="https://github.com/bhnandan313-pixel">
+<div class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center group-hover:bg-primary-fixed group-hover:scale-110 transition-all duration-300">
+<span class="material-symbols-outlined text-3xl" data-icon="code">code</span>
+</div>
+<span class="font-label-sm text-label-sm">GitHub</span>
+</a>
+<a class="flex flex-col items-center gap-3 text-secondary hover:text-primary transition-colors group" href="https://www.linkedin.com/in/nandan-bh/">
+<div class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center group-hover:bg-primary-fixed group-hover:scale-110 transition-all duration-300">
+<span class="material-symbols-outlined text-3xl" data-icon="work">work</span>
+</div>
+<span class="font-label-sm text-label-sm">LinkedIn</span>
+</a>
+<a class="flex flex-col items-center gap-3 text-secondary hover:text-primary transition-colors group" href="mailto:visionaryedit24@gmail.com">
+<div class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center group-hover:bg-primary-fixed group-hover:scale-110 transition-all duration-300">
+<span class="material-symbols-outlined text-3xl" data-icon="mail">mail</span>
+</div>
+<span class="font-label-sm text-label-sm">Email</span>
+</a>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-section-padding-mobile md:py-section-padding-desktop border-t border-outline-variant dark:border-outline bg-surface dark:bg-on-background">
+<div class="flex flex-col md:flex-row justify-between items-center px-gutter max-w-max-width mx-auto gap-4">
+<p class="font-label-sm text-label-sm font-bold text-on-surface hover:opacity-80 transition-opacity active:opacity-70">The Curator</p>
+<p class="font-body-md text-body-md text-secondary dark:text-secondary-fixed">© 2026 The Curator. Nandan B H </p>
+<div class="flex gap-6">
+<a class="font-body-md text-body-md text-secondary dark:text-secondary-fixed hover:text-primary dark:hover:text-primary-fixed transition-colors" href="https://github.com/bhnandan313-pixel">GitHub</a>
+<a class="font-body-md text-body-md text-secondary dark:text-secondary-fixed hover:text-primary dark:hover:text-primary-fixed transition-colors" href="https://www.linkedin.com/in/nandan-bh/">LinkedIn</a>
+<a class="font-body-md text-body-md text-secondary dark:text-secondary-fixed hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Twitter</a>
+</div>
+</div>
+</footer>
+<script>
+        // Simple active state observer for navigation
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('nav ul li a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('text-primary', 'font-bold', 'border-b-2', 'border-primary', 'pb-1');
+                link.classList.add('text-secondary');
+                if (link.getAttribute('href').includes(current) && current !== '') {
+                    link.classList.remove('text-secondary');
+                    link.classList.add('text-primary', 'font-bold', 'border-b-2', 'border-primary', 'pb-1');
+                }
+            });
+        });
+    </script>
+
+
+</body></html>
