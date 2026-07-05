@@ -154,7 +154,7 @@
 </script>
 <!-- TopNavBar -->
 <nav class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-md shadow-sm dark:shadow-none transition-all duration-300">
-<div class="flex justify-between items-center px-gutter max-w-max-width mx-auto h-20">
+<div class="relative flex justify-between items-center px-gutter max-w-max-width mx-auto h-20">
 <a class="font-headline-md text-headline-md font-bold text-on-surface dark:text-surface-bright hover:opacity-80 transition-opacity" href="#hero">Nandan B H</a>
 <!-- Desktop Nav -->
 <div class="hidden md:flex items-center gap-8">
@@ -165,12 +165,19 @@
 <li class=""><a class="text-secondary dark:text-secondary-fixed hover:text-primary dark:hover:text-primary-fixed transition-colors font-label-sm text-label-sm hover:opacity-80 active:scale-95 duration-200" href="#skills">Skills</a></li>
 <li class=""><a class="text-secondary dark:text-secondary-fixed hover:text-primary dark:hover:text-primary-fixed transition-colors font-label-sm text-label-sm hover:opacity-80 active:scale-95 duration-200" href="#contact">Contact</a></li>
 </ul>
-
 </div>
-<!-- Mobile Menu Button (Functional via JS later if needed, but keeping it simple visual for now) -->
-<button class="md:hidden text-on-surface hover:text-primary transition-colors">
-<span class="material-symbols-outlined" data-icon="menu" data-weight="fill" style="font-variation-settings: &quot;FILL&quot; 1;">menu</span>
+<button id="mobile-menu-button" class="md:hidden inline-flex items-center justify-center rounded-full p-2 text-on-surface hover:text-primary hover:bg-surface-container transition-colors" aria-expanded="false" aria-controls="mobile-menu">
+<span id="mobile-menu-icon" class="material-symbols-outlined" data-icon="menu" data-weight="fill" style="font-variation-settings: &quot;FILL&quot; 1;">menu</span>
 </button>
+</div>
+<div id="mobile-menu" class="hidden md:hidden absolute left-0 top-full w-full border-t border-outline-variant/30 bg-surface/95 backdrop-blur-md shadow-lg">
+<ul class="flex flex-col px-gutter py-4 gap-3">
+<li><a class="block rounded-md px-3 py-2 text-secondary hover:text-primary hover:bg-surface-container transition-colors font-label-sm text-label-sm" href="#hero">Hero</a></li>
+<li><a class="block rounded-md px-3 py-2 text-secondary hover:text-primary hover:bg-surface-container transition-colors font-label-sm text-label-sm" href="#projects">Projects</a></li>
+<li><a class="block rounded-md px-3 py-2 text-secondary hover:text-primary hover:bg-surface-container transition-colors font-label-sm text-label-sm" href="#resume">Resume</a></li>
+<li><a class="block rounded-md px-3 py-2 text-secondary hover:text-primary hover:bg-surface-container transition-colors font-label-sm text-label-sm" href="#skills">Skills</a></li>
+<li><a class="block rounded-md px-3 py-2 text-secondary hover:text-primary hover:bg-surface-container transition-colors font-label-sm text-label-sm" href="#contact">Contact</a></li>
+</ul>
 </div>
 </nav>
 <!-- Main Content -->
@@ -381,6 +388,40 @@
                 }
             });
         });
+
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuIcon = document.getElementById('mobile-menu-icon');
+        const mobileNavLinks = document.querySelectorAll('#mobile-menu a');
+
+        const toggleMobileMenu = () => {
+            const shouldOpen = mobileMenu.classList.contains('hidden');
+            mobileMenu.classList.toggle('hidden', !shouldOpen);
+            mobileMenuButton.setAttribute('aria-expanded', String(shouldOpen));
+            const nextIcon = shouldOpen ? 'close' : 'menu';
+            mobileMenuIcon.textContent = nextIcon;
+            mobileMenuIcon.setAttribute('data-icon', nextIcon);
+        };
+
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', toggleMobileMenu);
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth < 768) {
+                        toggleMobileMenu();
+                    }
+                });
+            });
+
+            window.addEventListener('resize', () => {
+                if (window.innerWidth >= 768) {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuButton.setAttribute('aria-expanded', 'false');
+                    mobileMenuIcon.textContent = 'menu';
+                    mobileMenuIcon.setAttribute('data-icon', 'menu');
+                }
+            });
+        }
     </script>
 
 
