@@ -1,19 +1,10 @@
-let AnalyticsComponent = null;
+import { inject } from '@vercel/analytics';
 
-async function initAnalytics() {
-  try {
-    const analyticsModule = await import('@vercel/analytics/next');
-    AnalyticsComponent = analyticsModule.Analytics;
-  } catch (error) {
-    console.warn('Vercel Analytics could not be loaded:', error);
-    return null;
-  }
-
-  if (typeof AnalyticsComponent === 'function') {
-    return AnalyticsComponent();
-  }
-
-  return null;
+function initAnalytics() {
+  inject({
+    mode: 'auto',
+    debug: true
+  });
 }
 
 export default initAnalytics;
