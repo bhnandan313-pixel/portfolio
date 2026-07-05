@@ -146,8 +146,43 @@
           },
         }
     </script>
+<style>
+  html.dark body {
+    background-color: #111827;
+    color: #f9fafb;
+  }
+
+  html.dark .bg-surface,
+  html.dark nav,
+  html.dark footer {
+    background-color: #111827 !important;
+    color: #f9fafb;
+  }
+
+  html.dark .text-on-surface {
+    color: #f9fafb !important;
+  }
+
+  html.dark .text-on-surface-variant,
+  html.dark .text-secondary {
+    color: #cbd5e1 !important;
+  }
+
+  html.dark .bg-\[\#F5F5F7\],
+  html.dark .bg-surface-container,
+  html.dark .bg-surface-container-high,
+  html.dark .bg-surface-container-highest {
+    background-color: #1f2937 !important;
+  }
+
+  html.dark .border-outline-variant,
+  html.dark .border-\[\#E5E5E7\],
+  html.dark .border-surface-variant {
+    border-color: #374151 !important;
+  }
+</style>
 </head>
-<body class="bg-surface text-on-surface font-body-md antialiased min-h-screen selection:bg-primary-container selection:text-on-primary-container">
+<body class="bg-surface text-on-surface font-body-md antialiased min-h-screen transition-colors duration-300 selection:bg-primary-container selection:text-on-primary-container">
 <script type="module">
   import initAnalytics from './assets/vercel-analytics.js';
   initAnalytics();
@@ -166,9 +201,14 @@
 <li class=""><a class="text-secondary dark:text-secondary-fixed hover:text-primary dark:hover:text-primary-fixed transition-colors font-label-sm text-label-sm hover:opacity-80 active:scale-95 duration-200" href="#contact">Contact</a></li>
 </ul>
 </div>
+<div class="flex items-center gap-2">
+<button id="theme-toggle" class="inline-flex items-center justify-center rounded-full p-2 text-on-surface hover:text-primary hover:bg-surface-container transition-colors" type="button" aria-label="Toggle dark mode" aria-pressed="false">
+<span id="theme-toggle-icon" class="material-symbols-outlined" data-icon="dark_mode" data-weight="fill" style="font-variation-settings: &quot;FILL&quot; 1;">dark_mode</span>
+</button>
 <button id="mobile-menu-button" class="md:hidden inline-flex items-center justify-center rounded-full p-2 text-on-surface hover:text-primary hover:bg-surface-container transition-colors" aria-expanded="false" aria-controls="mobile-menu">
 <span id="mobile-menu-icon" class="material-symbols-outlined" data-icon="menu" data-weight="fill" style="font-variation-settings: &quot;FILL&quot; 1;">menu</span>
 </button>
+</div>
 </div>
 <div id="mobile-menu" class="hidden md:hidden absolute left-0 top-full w-full border-t border-outline-variant/30 bg-surface/95 backdrop-blur-md shadow-lg">
 <ul class="flex flex-col px-gutter py-4 gap-3">
@@ -389,10 +429,27 @@
             });
         });
 
+        const themeToggleButton = document.getElementById('theme-toggle');
+        const themeToggleIcon = document.getElementById('theme-toggle-icon');
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
         const mobileMenuIcon = document.getElementById('mobile-menu-icon');
         const mobileNavLinks = document.querySelectorAll('#mobile-menu a');
+
+        const setTheme = (theme) => {
+            const isDark = theme === 'dark';
+            document.documentElement.classList.toggle('dark', isDark);
+            if (themeToggleButton) {
+                themeToggleButton.setAttribute('aria-pressed', String(isDark));
+                themeToggleButton.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+            }
+            if (themeToggleIcon) {
+                const nextIcon = isDark ? 'light_mode' : 'dark_mode';
+                themeToggleIcon.textContent = nextIcon;
+                themeToggleIcon.setAttribute('data-icon', nextIcon);
+            }
+            localStorage.setItem('theme', theme);
+        };
 
         const toggleMobileMenu = () => {
             const shouldOpen = mobileMenu.classList.contains('hidden');
@@ -402,6 +459,17 @@
             mobileMenuIcon.textContent = nextIcon;
             mobileMenuIcon.setAttribute('data-icon', nextIcon);
         };
+
+        const storedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        setTheme(storedTheme || (prefersDark ? 'dark' : 'light'));
+
+        if (themeToggleButton) {
+            themeToggleButton.addEventListener('click', () => {
+                const nextTheme = document.documentElement.classList.contains('dark') ? 'light' : 'dark';
+                setTheme(nextTheme);
+            });
+        }
 
         if (mobileMenuButton && mobileMenu) {
             mobileMenuButton.addEventListener('click', toggleMobileMenu);
