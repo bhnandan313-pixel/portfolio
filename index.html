@@ -5,6 +5,7 @@
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com" rel="preconnect">
+<link rel="stylesheet" href="style.css">
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet">
 
@@ -184,12 +185,14 @@
     border-color: #374151 !important;
   }
 </style>
+<link rel="stylesheet" href="assets/animated-tabs.css">
 </head>
 <body class="bg-surface text-on-surface font-body-md antialiased min-h-screen transition-colors duration-300 selection:bg-primary-container selection:text-on-primary-container">
 <script type="module">
   import initAnalytics from './assets/vercel-analytics.js';
   initAnalytics();
 </script>
+<script type="module" src="assets/animated-tabs.js"></script>
 <!-- TopNavBar -->
 <nav class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-md shadow-sm dark:shadow-none transition-all duration-300">
 <div class="relative flex justify-between items-center px-gutter max-w-max-width mx-auto h-20">
@@ -197,11 +200,11 @@
 <!-- Desktop Nav -->
 <div class="hidden md:flex items-center gap-8">
 <ul class="flex items-center gap-6">
-<li class=""><a class="text-primary dark:text-primary-fixed font-bold border-b-2 border-primary pb-1 font-label-sm text-label-sm active:scale-95 transition-transform duration-200" href="#hero">Hero</a></li>
-<li class=""><a class="text-secondary dark:text-secondary-fixed hover:text-primary dark:hover:text-primary-fixed transition-colors font-label-sm text-label-sm hover:opacity-80 active:scale-95 duration-200" href="#projects">Projects</a></li>
-<li class=""><a class="text-secondary dark:text-secondary-fixed hover:text-primary dark:hover:text-primary-fixed transition-colors font-label-sm text-label-sm hover:opacity-80 active:scale-95 duration-200" href="#resume">Resume</a></li>
-<li class=""><a class="text-secondary dark:text-secondary-fixed hover:text-primary dark:hover:text-primary-fixed transition-colors font-label-sm text-label-sm hover:opacity-80 active:scale-95 duration-200" href="#skills">Skills</a></li>
-<li class=""><a class="text-secondary dark:text-secondary-fixed hover:text-primary dark:hover:text-primary-fixed transition-colors font-label-sm text-label-sm hover:opacity-80 active:scale-95 duration-200" href="#contact">Contact</a></li>
+<li class=""><a class="text-primary nav-items" href="#hero">Hero</a></li>
+<li class=""><a class="text-secondary  nav-items" href="#projects">Projects</a></li>
+<li class=""><a class="text-secondary  nav-items" href="#resume">Resume</a></li>
+<li class=""><a class="text-secondary  nav-items" href="#skills">Skills</a></li>
+<li class=""><a class="text-secondary  nav-items" href="#contact">Contact</a></li>
 </ul>
 </div>
 <div class="flex items-center gap-2">
@@ -401,6 +404,7 @@
 <span class="font-label-sm text-label-sm">Email</span>
 </a>
 </div>
+
 </section>
 </main>
 <!-- Footer -->
